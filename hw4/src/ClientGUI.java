@@ -1,11 +1,10 @@
 import javax.swing.*;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 
 public class ClientGUI extends JFrame  implements ActionListener, Thread.UncaughtExceptionHandler  {
 
@@ -62,7 +61,29 @@ public class ClientGUI extends JFrame  implements ActionListener, Thread.Uncaugh
         panelBottom.add(btnSend, BorderLayout.EAST);
         cbAlwaysOnTop.addActionListener(this);
 
+        log.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println(log.getText());
+                /**
+                 * Здесь
+                 *
+                 *
+                 *
+                 *
+                 */
+            }
 
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+
+            }
+        });
         tfMessage.addActionListener(this);
         btnSend.addActionListener(this);
 
@@ -89,10 +110,6 @@ public class ClientGUI extends JFrame  implements ActionListener, Thread.Uncaugh
             tfMessage.setText("");
             } else {
                 throw new RuntimeException("Unknown source: " + src);
-            }
-            if (src == log)
-            {
-                System.out.println("sdfsdf");
             }
     }
 
