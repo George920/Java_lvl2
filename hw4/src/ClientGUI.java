@@ -66,11 +66,8 @@ public class ClientGUI extends JFrame  implements ActionListener, Thread.Uncaugh
             public void insertUpdate(DocumentEvent e) {
                 System.out.println(log.getText());
                 /**
-                 * Здесь
-                 *
-                 *
-                 *
-                 *
+                 * Здесь выводить в файл
+                 * либо, как предположение, по закрытию окна
                  */
             }
 
