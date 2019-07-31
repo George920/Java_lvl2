@@ -62,7 +62,7 @@ public class Main {
     }
     private static float[] fill (float[] arr){
         for (int i = 0; i < arr.length; i++) {
-            arr[i]=1;
+            arr[i]=1.0f;
         }
         return arr;
     }
